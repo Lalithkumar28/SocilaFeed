@@ -1,0 +1,451 @@
+@import "./style.scss";
+// @import "./Variables.scss";
+@mixin show-pdf
+{
+  border:2px solid $grey;
+      padding:10px;
+      width:50%;
+      text-align: center;
+      box-shadow:0px 3px 3px $box-shadow ;
+      justify-content: center;
+      display: flex;
+      gap:10px;
+}
+.main-bar
+{
+  position: absolute;
+  width:75%;
+  padding:90px 150px 50px 150px;
+  position: absolute;
+  left: 20%;
+  right: 0px;
+  margin-left: 100px; 
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh; 
+  .user-content-container
+  {
+        text-align: center;
+      box-shadow: 0px 3px 11px $box-shadow;
+      padding: 20px;
+      border:1px solid transparent;
+      border-radius:10px;
+      background-color: $white;
+      //  width: 100%;
+    .user-display-flex
+    {
+      display:flex;
+      align-items: center;
+      .user-form
+      {
+        justify-items: stretch;
+        width:100%;
+        
+      }
+      &.add-padding
+      {
+        padding-left: 60px;
+        padding-right: 40px;
+        justify-content: space-between;
+      }
+      .text-area
+        {
+         resize:none;
+          width: 100%;
+          background-color: $light-grey;
+          border:1px solid transparent;
+          margin:20px 0px 20px 10px;
+          padding: 10px;
+          border-radius: 25px;
+          overflow-y: auto;
+          &:focus{
+            outline:none;
+          }
+        }
+     
+      .submit
+      {
+        padding: 10px;
+        margin-left: 20px;
+        border-radius: 50%;
+        background-color: $light-grey;
+        &:active{
+          background-color: $grey;
+        }
+        &:hover{
+            background-color: $pink;
+        }
+      }
+    }
+    .preview-flex
+    {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap:10px;
+    .capture-button
+    {
+      color:black;
+      width:25%;
+      border-radius: 4px;
+      padding: 5px;
+      &:hover{
+        background-color:$pink;
+        cursor: pointer;
+        color:$white;
+      }
+    }
+    .capture-button-start-record
+    {
+      @extend .capture-button;
+      width:50%;
+    }
+    .preview-button
+    {
+      @extend .capture-button;
+      background-color:blueviolet;
+      color:$white;
+      
+      
+      &:hover{
+        cursor: pointer;
+        background-color: red;
+        color:black;
+      }
+    }
+    .icon-flex
+    {
+      display: flex;
+      gap:50px; 
+    }
+    .button-flex
+    {
+      display:flex;
+      justify-content: space-between;
+      align-items: center
+    }
+    .preview-button-stop-record
+    {
+      @extend .preview-button;
+      width:50%;
+    }
+    .font-color
+    {
+      color:red;
+    }
+    .preview-pdf
+    {
+      @include show-pdf;
+      width:25%;
+      padding: 5px;
+      color:black;
+      text-decoration: none;
+    }
+    
+  }
+  }
+  .attachment-flex
+  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+    &:hover{
+        color:$pink;
+    }
+    .input-hide-button
+    {
+      display: none;
+    }
+  }
+  .post-box
+  {
+    @extend .user-content-container;
+    margin-top:20px;
+    text-align: start;
+  .post-row-flex
+    {
+        display: flex;
+        justify-content: space-between;
+      .post-flex
+      {
+        display: flex;
+        flex-direction: row;
+        gap:10px;
+        padding-bottom:10px;
+        
+        .sub-post-flex
+        {
+          display: flex;
+          flex-direction: column;
+          align-items:flex-start;
+          h4{
+              margin: 5px 0 0 0;
+            }
+          p{
+            margin:0;
+            font-size:12px;
+            color:$grey;
+            }
+        }
+      }
+      .toggle-button
+      {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        ul{
+          border:1px solid $grey;
+          background-color: blueviolet;
+          border-radius: 4px;
+          color:$white;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          padding:5px;
+          &:hover{
+            cursor: pointer;
+            background-color:red;
+          }
+          li{
+            list-style: none;
+            text-align: end;
+            
+          }
+  
+      
+        }
+      }
+    }
+    .post-content
+    {
+      padding-left: 10px;
+      margin: 0px;
+      padding-bottom:5px;
+      .post-pre{
+      font-size:14px;
+      font-family: "tahoma";
+      white-space: pre-wrap;
+      }
+        .multi-media
+        {
+          margin-left: 200px;
+          .multimedia-img
+          {
+            width:400px;
+            text-align: center;
+            
+          }
+          .multimedia-video
+          {
+            width:400px ;
+            margin-left: 0px;        
+          }
+          .multimedia-other-contents
+          {
+            @include show-pdf;
+            &:hover{
+              background-color: $light-grey;
+              color:blue;
+              
+            }
+          
+            a{
+            text-decoration: none;
+            color:black;
+            
+            &:hover{
+              color:blue;
+              
+            }
+            }
+
+          }
+          .multimedia-web-cam
+          {
+            width:300px;
+
+          }
+        }
+    }
+  }
+  
+}
+
+
+
+
+// MEDIA-QUERY
+@media screen and (max-width:1200px) {
+    .main-bar{
+        left:15%;
+      .user-content-container
+      {
+     
+      .preview-flex{
+        .preview-pdf
+        {
+          width:50%;
+        }
+      }
+    }
+    .attachment-flex{
+      font-size: 14px;
+    }
+    .post-box
+    {
+    .post-content{
+      
+    .multi-media
+    {
+      margin-left: 0px;
+    }
+    }
+  }
+}
+    
+  }
+
+@media screen and (max-width:576px) {
+    .main-bar
+  {
+    width: 100%;
+    left:0;
+    padding: 90px 30px 50px 30px;
+    margin-left: 0px;
+    .user-content-container
+    {
+      
+    .user-display-flex
+    {
+     max-width: 100%;
+     &.column-flex
+      {
+        display: flex;
+        flex-direction: column;
+      }
+    &.add-padding
+    {
+      padding-left: 10px;
+      padding-right:10px;
+       justify-content: space-between;
+       gap:5px;
+       align-items: flex-start;
+       
+       
+    }
+     
+    }
+    .preview-flex{
+      padding-top: 10px;
+      .preview-audio
+      {
+        width:300px;
+        height: 100px;
+      }
+      .preview-button{
+        width:50%;
+      }
+      .capture-button
+      {
+        width: 50%;
+      }
+      .icon-flex
+      {
+        gap:20px;
+      .capture-button-start-record{
+        width:50%;
+        font-size: 12px;
+      }
+      .capture-button-stop-record
+      {
+        font-size: 12px;
+      }
+    }
+    }
+    }
+    .attachment-flex
+    {
+      
+      font-size: 10px;
+        &.input-flex
+      {
+        display: flex;
+        flex-direction: column;
+
+      }
+      input[type=file]
+      {
+        width:100%;
+        font-size: 8px;
+      }
+      p{
+        margin: 0px;
+      }
+    }
+    .post-box{
+     padding: 10px;
+     .post-row-flex
+     {
+      .toggle-button
+      {
+        ul{
+          margin-top:0px;
+          font-size: 14px;
+        }
+      }
+     }
+    .post-content{
+      .post-pre{
+      font-size: 12px;
+      }
+      .multi-media{
+        margin-left:0px;
+        .multimedia-img{
+         
+          width: 270px;
+          margin-left: 20px;
+        }
+        .multimedia-video{
+         
+          width:300px;
+          margin-left: 10px;
+        }
+        .multimedia-audio
+        {
+          width:250px;
+        }
+      }
+    }
+  }
+  }
+  
+}
+    
+@media screen and (max-width:380px) {
+    .main-bar
+    {
+     .post-box{
+      .post-content{
+        
+        .multi-media{
+          margin-left:0px;
+          .multimedia-img{
+            
+            margin-left: 0px;
+          }
+          .multimedia-video{
+               width:260px;
+          }
+          // .multimedia-other-contents{
+           
+          // }
+          .multimedia-web-cam{
+           width: 280px;
+          }
+          
+          
+        }
+      }
+    }
+   }
+   }
